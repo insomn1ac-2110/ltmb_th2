@@ -1,8 +1,18 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import SelectLocationScreen from './SelectLocationScreen';
 
 const VerificationScreen = ({ navigation }) => {
   const [code, setCode] = useState('');
+
+  const handleVerify = () => {
+    if (code.length === 4) {
+      alert('Verified!');
+      navigation.navigate('SelectLocation'); // Chuyển đến màn hình chọn vị trí
+    } else {
+      alert('Please enter a 4-digit code');
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -15,7 +25,7 @@ const VerificationScreen = ({ navigation }) => {
         value={code}
         onChangeText={setCode}
       />
-      <TouchableOpacity style={styles.button} onPress={() => alert('Verified!')}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(SelectLocationScreen)}>
         <Text style={styles.buttonText}>→</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => alert('Resend Code')} style={styles.resend}>
