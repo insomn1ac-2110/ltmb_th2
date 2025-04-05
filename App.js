@@ -1,9 +1,8 @@
-// Install required packages:
-// npm install @react-navigation/native @react-navigation/native-stack react-native-gesture-handler
-
+// App.js
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import SplashScreen from './screens/SplashScreen';
 import OnboardingScreen from './screens/OnboardingScreen';
 import SignInScreen from './screens/SignInScreen';
@@ -12,6 +11,9 @@ import VerificationScreen from './screens/VerificationScreen';
 import SelectLocationScreen from './screens/SelectLocationScreen';
 import LoginScreen from './screens/LoginScreen';
 import SignUpScreen from './screens/SignUpScreen';
+import BottomTabNavigator from './navigation/BottomTabNavigator';
+import ProductDetailScreen from './screens/ProductDetailScreen';
+import ExploreStack from './navigation/ExploreStack'; 
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +29,9 @@ export default function App() {
         <Stack.Screen name="SelectLocationScreen" component={SelectLocationScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
+        <Stack.Screen name="MainApp" component={BottomTabNavigator} />
+        <Stack.Screen name="ExploreStack" component={ExploreStack} />
+        <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

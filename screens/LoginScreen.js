@@ -35,9 +35,9 @@ const LoginScreen = ({ navigation }) => {
       <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail} />
       <TextInput style={styles.input} placeholder="Password" secureTextEntry value={password} onChangeText={setPassword} />
 
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Log In</Text>
-      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('MainApp')}>
+              <Text style={styles.buttonText}>Login</Text>
+            </TouchableOpacity>
 
       <TouchableOpacity onPress={() => navigation.navigate('SignUpScreen')}>
         <Text style={styles.linkText}>Don't have an account? Sign Up</Text>
